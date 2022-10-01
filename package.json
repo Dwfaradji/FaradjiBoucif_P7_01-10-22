@@ -1,0 +1,23 @@
+{
+  "name": "front-end-les-petits-plats-main",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dwfaradji/FaradjiBoucif_P7_01-10-22.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dwfaradji/FaradjiBoucif_P7_01-10-22/issues"
+  },
+  "homepage": "https://github.com/Dwfaradji/FaradjiBoucif_P7_01-10-22#readme",
+  "devDependencies": {
+    "eslint": "^8.24.0"
+  }
+}
