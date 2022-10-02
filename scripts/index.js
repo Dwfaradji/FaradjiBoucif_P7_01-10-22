@@ -9,12 +9,22 @@ class Card {
     }
 
     listIngredient(lists) {
-        const list = document.createElement("div");
+        const list = document.createElement("li");
         list.setAttribute("class", "ingredients");
-        if (lists.quantity !== undefined && lists.unit !== undefined) {
-            list.innerHTML = `${lists.ingredient} : ${lists.quantity}  ${lists.unit} `;
+        if (lists.unit == "grammes") {
+            lists.unit = "g";
+        } else if (lists.unit === "cuillères à soupe") {
+            lists.unit = "c à s";
+        } else if (lists.unit == "cuillères à café") {
+            lists.unit = "c à c";
+        }
+
+        if (lists.quantity == undefined) {
+            list.innerHTML = `<strong>${lists.ingredient}</strong>`;
+        } else if (lists.unit == undefined) {
+            list.innerHTML = `<strong>${lists.ingredient} </strong>: ${lists.quantity}`;
         } else {
-            list.innerHTML = `${lists.ingredient} `;
+            list.innerHTML = `<strong> ${lists.ingredient} </strong>: ${lists.quantity} ${lists.unit} `;
         }
         // this.createCard.appendChild(list);
         return list;
@@ -27,17 +37,31 @@ class Card {
         this.div.innerHTML = ` 
 			<img src="./assets/recette-du-quinoa-bol-1024x683.jpg.webp" class="card-img-top" alt="...">
 			<div class="card-body card_title ">
-				<h5>${this.recipe.name} </h5>
-				<span><i class="fa-regular fa-clock"></i> ${this.recipe.time}</span>
+				<h5>${this.recipe.name}</h5>
+				<span><strong> <i class="fa-x6 fa-regular fa-clock"></i></strong> ${this.recipe.time} mn </span>
 			</div>
         `;
+        const createBlocParaAndList = document.createElement("div");
+        createBlocParaAndList.setAttribute("class", "container_recette");
+        const ul = document.createElement("ul");
+
+        const divP = document.createElement("div");
+        divP.setAttribute("class", "paragraphe_recette");
+        const p = document.createElement("p");
+        p.setAttribute("class", "paragraphe");
+        p.innerHTML = this.recipe.description;
+        this.div.appendChild(createBlocParaAndList);
         this.getCard.appendChild(this.createCard);
         this.createCard.appendChild(this.div);
+
+        createBlocParaAndList.appendChild(ul);
+        createBlocParaAndList.appendChild(divP);
+        divP.appendChild(p);
 
         const lists = this.arrayListIngredient;
         lists.forEach((list) => {
             const test = this.listIngredient(list);
-            this.div.appendChild(test);
+            ul.appendChild(test);
         });
     }
 }
