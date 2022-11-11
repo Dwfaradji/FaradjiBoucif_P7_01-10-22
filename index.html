@@ -1,53 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/style.css">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-	<script src="https://kit.fontawesome.com/53013b6bdc.js" crossorigin="anonymous"></script>
-	<title>Les petits plats</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/53013b6bdc.js"></script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.png">
+    <title>Les petits plats</title>
 </head>
 
 <body>
-	<header><img src="./assets/logo.png" alt="logo" class="logo w-25"></header>
-	<main>
-		<section>
-			<div class="input_barre">
-				<input class=" input_barre_search" type="search" placeholder="Rechercher une recette"
-					aria-label="Search">
-				<button class="btn   input_barre_search_btn" type="submit">
+<header><img src="./assets/logo_lespetitsplats.png" alt="logo_les_petits_plats" class="logo w-25"></header>
+<main>
+    <section>
+        <div class="input_barre">
+            <input class="input_barre_search form-control" type="search" placeholder="Rechercher un ingredient, appareil, ustensiles ou une recette"
+                   aria-label="Search">
+            <span class="input-group-text icon_search">
 					<i class="fa-solid fa-magnifying-glass"></i>
-				</button>
-			</div>
-		</section>
+				</span>
+        </div>
+    </section>
+    <!-- Afficher le bouton   -->
+    <div class="btn_filter"></div>
+    <!-- Bouton ingredient -->
+    <section>
+        <div class="btn_search_group filter_group">
+            <div id="container_btn_ingredient" class="btn_input color_1">
+                <button id="btn_ingredient"  placeholder="Ingredients"
+                        class="color_1 d-flex align-items-center">
+                    Ingredients
+                    <span class="m-3">
+							<i class="fa-solid fa-chevron-down chevron-down "></i>
+						</span>
+                </button>
+            </div>
+            <!-- liste d'ingrédients -->
+            <div id="open_list_ingredients" class="opened-btn-container  color_1 container_list_ingredient">
+                <div class="input_ingredient d-flex align-items-center ">
+                    <input id="input_search_ingredient" type="text" placeholder="Rechercher un ingredient"
+                           class="color_1 color_text form-control"> <i
+                    class="fa-solid fa-chevron-up color_text"></i>
+                </div>
+                <div class="container_list container">
+                    <ul class="list-group list_ingredients"></ul>
+                </div>
+            </div>
 
-		<section>
-			<div class="btn_search_group">
-				<div class="btn_input color_1">
-					<input type="text" placeholder="Ingredients" class="color_1">
-					<i class="fa-solid fa-chevron-down chevron-down"></i>
-				</div>
+            <div id="container_btn_appareil" class="btn_input color_2">
+                <button id="btn-appareil"  placeholder="Appareils"
+                        class="color_2 d-flex align-items-center">
+                    Appareils
+                    <span class="m-3">
+							<i class="fa-solid fa-chevron-down chevron-down "></i>
+						</span>
+                </button>
+            </div>
 
-				<div class="btn_input color_2">
-					<input type="text" placeholder="Appareils" class="color_2">
-					<i class="fa-solid fa-chevron-down chevron-down"></i>
-				</div>
+            <div class="opened-btn-container  color_2 container_list_appareil">
+                <div class="input_appliance d-flex align-items-center ">
+                    <input id="input_search_appliance" type="text" placeholder="Rechercher un appareil"
+                           class="color_2 color_text form-control"> <i class="fa-solid fa-chevron-up color_text"></i>
+                </div>
+                <div class="container_list container">
+                    <ul class="list-group  list_appliances"> </ul>
+                </div>
+            </div>
 
-				<div class="btn_input color_3">
-					<input type="text" placeholder="Ustensiles" class="color_3">
-					<i class="fa-solid fa-chevron-down chevron-down"></i>
-				</div>
-			</div>
-		</section>
-		<section id="card_article">
-		</section>
+            <div id="container_btn_utensil" class="btn_input color_3 ">
+                <button id="btn-utensil"  placeholder="Ustensiles"
+                        class="color_3 d-flex align-items-center">
+                    Ustensiles
+                    <span class="m-3">
+							<i class="fa-solid fa-chevron-down chevron-down "></i>
+						</span>
+                </button>
+            </div>
 
-	</main>
-	<script type="module" src="scripts/index.js"></script>
+            <div class="opened-btn-container color_3 container_list_utensil">
+                <div class="input_utensil d-flex align-items-center">
+                    <input id="input_search_utensil" type="text" placeholder="Rechercher un Ustensiles"
+                           class="color_3 color_text form-control"> <i class="fa-solid fa-chevron-up color_text"></i>
+                </div>
+                <div class="container_list container">
+                    <ul class="list-group list_utensils"> </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="card_article">
+    </section>
+    <p class="noFound"></p>
+</main>
+<script type="module" src="scripts/index.js" async></script>
 </body>
 
 </html>
