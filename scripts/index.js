@@ -8,7 +8,6 @@ class Card {
      * @param {Object} recipe - liste des recettes
      */
     constructor(recipe) {
-
         this.recette = recipe;
         this.arrayListIngredient = recipe.ingredients;
         this.createCardDom();
