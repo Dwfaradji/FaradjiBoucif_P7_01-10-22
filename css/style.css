@@ -142,7 +142,10 @@ section {
 
 
 .btn_filter button {
-	margin-right: 2em;
+	margin: 9px;
+}
+.btn_filter{
+	margin-top: 10px;
 }
 
 #card_article {

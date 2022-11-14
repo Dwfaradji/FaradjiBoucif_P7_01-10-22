@@ -16,7 +16,7 @@
 <body>
 <header><img src="./assets/logo_lespetitsplats.png" alt="logo_les_petits_plats" class="logo w-25"></header>
 <main>
-    <section>
+    <div>
         <div class="input_barre">
             <input class="input_barre_search form-control" type="search" placeholder="Rechercher un ingredient, appareil, ustensiles ou une recette"
                    aria-label="Search">
@@ -24,15 +24,14 @@
 					<i class="fa-solid fa-magnifying-glass"></i>
 				</span>
         </div>
-    </section>
+    </div>
     <!-- Afficher le bouton   -->
     <div class="btn_filter"></div>
     <!-- Bouton ingredient -->
-    <section>
+    <div>
         <div class="btn_search_group filter_group">
             <div id="container_btn_ingredient" class="btn_input color_1">
-                <button id="btn_ingredient"  placeholder="Ingredients"
-                        class="color_1 d-flex align-items-center">
+                <button id="btn_ingredient" class="color_1 d-flex align-items-center">
                     Ingredients
                     <span class="m-3">
 							<i class="fa-solid fa-chevron-down chevron-down "></i>
@@ -52,8 +51,7 @@
             </div>
 
             <div id="container_btn_appareil" class="btn_input color_2">
-                <button id="btn-appareil"  placeholder="Appareils"
-                        class="color_2 d-flex align-items-center">
+                <button id="btn-appareil" class="color_2 d-flex align-items-center">
                     Appareils
                     <span class="m-3">
 							<i class="fa-solid fa-chevron-down chevron-down "></i>
@@ -72,8 +70,7 @@
             </div>
 
             <div id="container_btn_utensil" class="btn_input color_3 ">
-                <button id="btn-utensil"  placeholder="Ustensiles"
-                        class="color_3 d-flex align-items-center">
+                <button id="btn-utensil" class="color_3 d-flex align-items-center">
                     Ustensiles
                     <span class="m-3">
 							<i class="fa-solid fa-chevron-down chevron-down "></i>
@@ -91,9 +88,9 @@
                 </div>
             </div>
         </div>
-    </section>
-    <section id="card_article">
-    </section>
+    </div>
+    <div id="card_article">
+    </div>
     <p class="noFound"></p>
 </main>
 <script type="module" src="scripts/index.js" async></script>
