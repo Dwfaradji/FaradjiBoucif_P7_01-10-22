@@ -1,7 +1,10 @@
+// Import
 import AllSearch from "./factories/allSearch.js";
-
 import api from "../utils/api.js";
+
+// Export
 export const recipes = await api();
+
 class Card {
     /**
      *
@@ -33,6 +36,7 @@ class Card {
         }
         return list;
     }
+
     createCardDom() {
         this.getDomCard = document.getElementById("card_article");
         this.createCard = this.createBaliseWithClass(
@@ -85,6 +89,7 @@ class Card {
             ul.appendChild(li);
         });
     }
+
     /**
      *
      * @param {String} createElement

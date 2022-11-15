@@ -1,23 +1,27 @@
+// Import
 import {
     createBtnTag,
     createNewTableOfAppliances,
     createNewTableOfIngredients,
     createNewTableOfUtensils
 } from "./filterByTags.js";
-
+import variables from "../../utils/variables.js";
+// Export
 export const selectedTagsIngredient = new Set();
 export const selectedTagsAppliance = new Set();
 export const selectedTagsUtensil = new Set();
-
+// Variables
+const querySelector = variables();
 const arrayTheRecipesFind = new Set();
+
 /**
  * @TODO : remplacer les boucles par des boucles for.
  * @TODO : refactoriser le code.
  */
 export default class AllSearch {
     ingredients;
+
     /**
-     *
      * @param {Array} arrayRecipes - Tableau contenant toutes les recettes
      */
     constructor(arrayRecipes) {
@@ -25,79 +29,63 @@ export default class AllSearch {
         this.arrayRecipes = arrayRecipes;
         this.arrayTheRecipesFind = arrayTheRecipesFind;
         this.newArrayRecipes();
+
+        // Variables Barre principal
         this.getSearchBarre = document.querySelector(".input_barre_search");
+
+        // Écouteur d'évènements barre de recherche
         this.getSearchBarre.addEventListener(
             "input",
             this.getValueSearchBarre.bind(this)
         );
 
-        // Variables ingredient
-        this.btnIngredient = document.querySelector(
-            "#container_btn_ingredient"
-        );
-        this.listIngredient = document.querySelector(
-            ".container_list_ingredient"
-        );
-        const deleteListDomIngredient =
-            document.querySelector(".list_ingredients");
-
-        this.btnIngredient.addEventListener("click", () => {
-            this.removeTheDomList(deleteListDomIngredient);
-            this.listIngredient.style.display = "block";
-            this.btnIngredient.style.display = "none";
+        // Écouteur d'évènements sur les filtres
+        querySelector.btnIngredient.addEventListener("click", () => {
+            this.removeTheDomList(querySelector.deleteListDomIngredient);
+            querySelector.listIngredient.style.display = "block";
+            querySelector.btnIngredient.style.display = "none";
             createNewTableOfIngredients(this.arrayTheRecipesFind);
             this.filterTheTagByClick(
                 ".list_ingredients li",
-                this.listIngredient,
-                this.btnIngredient,
+                querySelector.listIngredient,
+                querySelector.btnIngredient,
                 selectedTagsIngredient,
                 "btn_filter_ingredient",
                 "color_1"
             );
         });
 
-        this.btnAppliance = document.querySelector("#container_btn_appareil");
-        this.listAppliance = document.querySelector(".container_list_appareil");
-        const deleteListDomAppliance =
-            document.querySelector(".list_appliances");
-
-        this.btnAppliance.addEventListener("click", () => {
-            this.removeTheDomList(deleteListDomAppliance);
-            this.listAppliance.style.display = "block";
-            this.btnAppliance.style.display = "none";
+        querySelector.btnAppliance.addEventListener("click", () => {
+            this.removeTheDomList(querySelector.deleteListDomAppliance);
+            querySelector.listAppliance.style.display = "block";
+            querySelector.btnAppliance.style.display = "none";
             createNewTableOfAppliances(this.arrayTheRecipesFind);
             this.filterTheTagByClick(
                 ".list_appliances li",
-                this.listAppliance,
-                this.btnAppliance,
+                querySelector.listAppliance,
+                querySelector.btnAppliance,
                 selectedTagsAppliance,
                 "btn_filter_appliance",
                 "color_2"
             );
         });
 
-        this.btnUstensil = document.querySelector("#container_btn_utensil");
-        this.listUstensil = document.querySelector(".container_list_utensil");
-
-
-        const deleteListDomUtensil = document.querySelector(".list_utensils");
-
-        // Écouteur D'évènements type Click sur les btn filtre
-        this.btnUstensil.addEventListener("click", () => {
-            this.removeTheDomList(deleteListDomUtensil);
-            this.listUstensil.style.display = "block";
-            this.btnUstensil.style.display = "none";
+        querySelector.btnUtensil.addEventListener("click", () => {
+            this.removeTheDomList(querySelector.deleteListDomUtensil);
+            querySelector.listUtensil.style.display = "block";
+            querySelector.btnUtensil.style.display = "none";
             createNewTableOfUtensils(this.arrayTheRecipesFind);
             this.filterTheTagByClick(
                 ".list_utensils li",
-                this.listUstensil,
-                this.btnUstensil,
+                querySelector.listUtensil,
+                querySelector.btnUtensil,
                 selectedTagsUtensil,
                 "btn_filter_utensil",
                 "color_3"
             );
         });
     }
+
     removeTheDomList(deleteList) {
         while (deleteList.firstChild) {
             deleteList.removeChild(deleteList.firstChild);
@@ -109,6 +97,7 @@ export default class AllSearch {
             this.arrayTheRecipesFind.add(el);
         });
     }
+
     stringConversionWithoutAccents(string) {
         return string
             .normalize("NFD")
@@ -124,7 +113,6 @@ export default class AllSearch {
     }
 
     /**
-     *
      * @param {string} classNameSelector Nom de la class de la list
      * @param {Element} listElement sélecteur list
      * @param {Element} btn sélecteur btn
@@ -180,7 +168,6 @@ export default class AllSearch {
     }
 
     /**
-     *
      * @param {object} objectsRecipe list object des recettes
      */
     getTheRecipesFound(objectsRecipe) {
@@ -201,45 +188,20 @@ export default class AllSearch {
 
         let hasAllIngredient = true;
         if (selectedTagsIngredient.size) {
-            hasAllIngredient = Array.from(selectedTagsIngredient).every(
-                (selectedIngredient) => {
-                    const foundIngredient = objectsRecipe.ingredients.find(
-                        (ingredient) =>
-                            ingredient.ingredient.toLowerCase() ===
-                            selectedIngredient.toLowerCase()
-                    );
-                    return foundIngredient !== undefined;
-                }
-            );
+            hasAllIngredient = this.filterSearchInArrayRecipes(hasAllIngredient, selectedTagsIngredient, objectsRecipe.ingredients, "ingredient");
         }
 
         let hasAllAppliance = true;
         if (selectedTagsAppliance.size) {
-            hasAllAppliance = Array.from(selectedTagsAppliance).every(
-                (selectedAppliance) => {
-                    const foundAppliance = [objectsRecipe.appliance].find(
-                        (appliance) =>
-                            appliance.toLowerCase() ===
-                            selectedAppliance.toLowerCase()
-                    );
-                    return foundAppliance !== undefined;
-                }
-            );
+            hasAllAppliance = this.filterSearchInArrayRecipes(hasAllAppliance, selectedTagsAppliance, [objectsRecipe.appliance]);
         }
 
         let hasAllUtensil = true;
         if (selectedTagsUtensil.size) {
-            hasAllUtensil = Array.from(selectedTagsUtensil).every(
-                (selectedUtensil) => {
-                    const foundUtensil = objectsRecipe.ustensils.find(
-                        (utensil) =>
-                            utensil.toLowerCase() ===
-                            selectedUtensil.toLowerCase()
-                    );
-                    return foundUtensil !== undefined;
-                }
-            );
+            hasAllUtensil = this.filterSearchInArrayRecipes(hasAllUtensil, selectedTagsUtensil, objectsRecipe.ustensils);
+
         }
+
         objectsRecipe.data = ((this.valueInput || "").length <= 2 ||
                 recipesTitle ||
                 recipesDescription ||
@@ -248,6 +210,30 @@ export default class AllSearch {
             hasAllAppliance &&
             hasAllUtensil;
     }
+
+    filterSearchInArrayRecipes(hasAllElement, selectedTags, recipeElement, ingredient) {
+        hasAllElement = Array.from(selectedTags).every(
+            (selectedTag) => {
+                if (ingredient === "ingredient") {
+                    const foundIngredient = recipeElement.find(
+                        (elementRecipe) =>
+                            elementRecipe.ingredient.toLowerCase() ===
+                            selectedTag.toLowerCase()
+                    );
+                    return foundIngredient !== undefined;
+                } else {
+                    const foundIngredient = recipeElement.find(
+                        (elementRecipe) =>
+                            elementRecipe.toLowerCase() ===
+                            selectedTag.toLowerCase()
+                    );
+                    return foundIngredient !== undefined;
+                }
+            }
+        );
+        return hasAllElement;
+    }
+
     /**
      *
      * @param {String} recipeElement - Contenue des recettes.

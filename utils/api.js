@@ -1,8 +1,7 @@
 export default async function api() {
     try {
         const response = await fetch("data/recipes.json");
-        const promise = await response.json();
-        return promise;
+        return await response.json();
     } catch (error) {
         console.log(error);
     }

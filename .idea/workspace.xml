@@ -4,7 +4,10 @@
     <list default="true" id="ef0947d5-bc49-46b8-8c3f-a4b70457dd80" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/factories/allSearch.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/factories/allSearch.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/factories/filterByTags.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/factories/filterByTags.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/api.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,10 +20,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
-  <component name="ProjectId" id="2HOWBrhvvIS1eLyn4Vku5Fo4BcK" />
+  <component name="ProjectId" id="2HXPmXnuW69OvU9hru1QnU0zmU9" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -30,35 +30,22 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/macfb/Documents/Formation_DA/Projet/Projet 7/Front-end-Les Petits Plats-main/assets&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/assets" />
-    </key>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="ef0947d5-bc49-46b8-8c3f-a4b70457dd80" name="Changes" comment="" />
-      <created>1668156479349</created>
+      <created>1668428615722</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1668156479349</updated>
-      <workItem from="1668156480978" duration="6259000" />
-      <workItem from="1668163590320" duration="893000" />
-      <workItem from="1668164491284" duration="10490000" />
-      <workItem from="1668181244831" duration="1591000" />
-      <workItem from="1668182843251" duration="388000" />
-      <workItem from="1668241400792" duration="3032000" />
-      <workItem from="1668245979247" duration="1762000" />
-      <workItem from="1668422579661" duration="1353000" />
+      <updated>1668428615722</updated>
+      <workItem from="1668428616894" duration="8379000" />
+      <workItem from="1668501391207" duration="3529000" />
     </task>
     <servers />
   </component>
