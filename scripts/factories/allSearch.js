@@ -122,7 +122,7 @@ export default class AllSearch {
                 btn.style.display = "flex";
                 selectTags.add(e.target.innerHTML);
                 createBtnTag(e.target.innerHTML, classNameBtn, color, selectTags);
-                this.deleteFilterBtn(classNameBtn, selectTags);
+                this.deleteBtnTag(classNameBtn, selectTags);
                 this.filterTheRecipes();
             });
         });
@@ -133,7 +133,7 @@ export default class AllSearch {
      * @param {string} className  Nom de la class des boutons
      * @param {Set<*>} selectTags  Contenant le tag sélectionner
      */
-    deleteFilterBtn(className, selectTags) {
+    deleteBtnTag(className, selectTags) {
         const getDomBtnFilter = document.querySelectorAll(`.${className}`);
         getDomBtnFilter.forEach((btn) => {
             btn.closest(className);
@@ -153,9 +153,10 @@ export default class AllSearch {
         });
 
         this.getErrorText = document.querySelector(".noFound");
-        if (this.arrayTheRecipesFind.size === 0) {
+        if (this.arrayTheRecipesFind.length === 0) {
             this.getErrorText.innerHTML =
-                "Aucune recette ne correspond à votre critère... vous pouvez chercher « tarte aux pommes », « poisson », ect.";
+                "Aucune recette ne correspond à votre critère... vous pouvez chercher « tarte aux pommes », " +
+                "« poisson », ect.";
         } else {
             this.getErrorText.innerHTML = "";
         }
@@ -182,29 +183,33 @@ export default class AllSearch {
 
         let hasAllIngredient = true;
         if (selectedTagsIngredient.size) {
-            hasAllIngredient = this.filterSearchInArrayRecipes(hasAllIngredient, selectedTagsIngredient, objectsRecipe.ingredients, "ingredient");
+            hasAllIngredient = this.findTheRecipesShow(hasAllIngredient, selectedTagsIngredient, objectsRecipe.ingredients, "ingredient");
         }
 
         let hasAllAppliance = true;
         if (selectedTagsAppliance.size) {
-            hasAllAppliance = this.filterSearchInArrayRecipes(hasAllAppliance, selectedTagsAppliance, [objectsRecipe.appliance]);
+            hasAllAppliance = this.findTheRecipesShow(hasAllAppliance, selectedTagsAppliance, [objectsRecipe.appliance]);
         }
 
         let hasAllUtensil = true;
         if (selectedTagsUtensil.size) {
-            hasAllUtensil = this.filterSearchInArrayRecipes(hasAllUtensil, selectedTagsUtensil, objectsRecipe.ustensils);
+            hasAllUtensil = this.findTheRecipesShow(hasAllUtensil, selectedTagsUtensil, objectsRecipe.ustensils);
         }
 
-        objectsRecipe.data = ((this.valueInput || "").length <= 2 ||
+        if (((this.valueInput || "").length <= 2 ||
                 recipesTitle ||
                 recipesDescription ||
                 recipesIngredient) &&
             hasAllIngredient &&
             hasAllAppliance &&
-            hasAllUtensil;
+            hasAllUtensil) {
+            objectsRecipe.data = true;
+        } else {
+            objectsRecipe.data = false;
+        }
     }
 
-    filterSearchInArrayRecipes(hasAllElement, selectedTags, recipeElement, ingredient) {
+    findTheRecipesShow(hasAllElement, selectedTags, recipeElement, ingredient) {
         hasAllElement = Array.from(selectedTags).every(
             (selectedTag) => {
                 if (ingredient === "ingredient") {
@@ -215,12 +220,12 @@ export default class AllSearch {
                     );
                     return foundIngredient !== undefined;
                 } else {
-                    const foundIngredient = recipeElement.find(
+                    const foundElement = recipeElement.find(
                         (elementRecipe) =>
                             elementRecipe.toLowerCase() ===
                             selectedTag.toLowerCase()
                     );
-                    return foundIngredient !== undefined;
+                    return foundElement !== undefined;
                 }
             }
         );
