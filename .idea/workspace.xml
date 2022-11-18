@@ -6,8 +6,6 @@
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/factories/allSearch.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/factories/allSearch.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/factories/filterByTags.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/factories/filterByTags.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/api.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +30,8 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -45,7 +44,17 @@
       <option name="presentableId" value="Default" />
       <updated>1668428615722</updated>
       <workItem from="1668428616894" duration="8379000" />
-      <workItem from="1668501391207" duration="3529000" />
+      <workItem from="1668501391207" duration="3723000" />
+      <workItem from="1668505468290" duration="582000" />
+      <workItem from="1668512868391" duration="64000" />
+      <workItem from="1668512945997" duration="255000" />
+      <workItem from="1668513236297" duration="77000" />
+      <workItem from="1668513339199" duration="42000" />
+      <workItem from="1668513556029" duration="929000" />
+      <workItem from="1668590710743" duration="679000" />
+      <workItem from="1668608367271" duration="733000" />
+      <workItem from="1668609105820" duration="1143000" />
+      <workItem from="1668679083009" duration="4836000" />
     </task>
     <servers />
   </component>

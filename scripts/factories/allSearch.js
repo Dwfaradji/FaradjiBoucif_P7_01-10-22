@@ -12,7 +12,7 @@ export const selectedTagsAppliance = new Set();
 export const selectedTagsUtensil = new Set();
 // Variables
 const querySelector = variables();
-const arrayTheRecipesFind = new Set();
+const arrayTheRecipesFind = [];
 
 /**
  * @TODO : remplacer les boucles par des boucles for.
@@ -28,7 +28,6 @@ export default class AllSearch {
         // Tableau
         this.arrayRecipes = arrayRecipes;
         this.arrayTheRecipesFind = arrayTheRecipesFind;
-        this.newArrayRecipes();
 
         // Variables Barre principal
         this.getSearchBarre = document.querySelector(".input_barre_search");
@@ -38,6 +37,7 @@ export default class AllSearch {
             "input",
             this.getValueSearchBarre.bind(this)
         );
+        this.filterTheRecipes();
 
         // Écouteur d'évènements sur les filtres
         querySelector.btnIngredient.addEventListener("click", () => {
@@ -90,12 +90,6 @@ export default class AllSearch {
         while (deleteList.firstChild) {
             deleteList.removeChild(deleteList.firstChild);
         }
-    }
-
-    newArrayRecipes() {
-        this.arrayRecipes.forEach((el) => {
-            this.arrayTheRecipesFind.add(el);
-        });
     }
 
     stringConversionWithoutAccents(string) {
@@ -152,7 +146,7 @@ export default class AllSearch {
     }
 
     filterTheRecipes() {
-        this.arrayTheRecipesFind.clear();
+        this.arrayTheRecipesFind = [];
         this.arrayRecipes.forEach((recipe) => {
             this.getTheRecipesFound(recipe);
             this.showTheRecipesFound(recipe);
@@ -199,7 +193,6 @@ export default class AllSearch {
         let hasAllUtensil = true;
         if (selectedTagsUtensil.size) {
             hasAllUtensil = this.filterSearchInArrayRecipes(hasAllUtensil, selectedTagsUtensil, objectsRecipe.ustensils);
-
         }
 
         objectsRecipe.data = ((this.valueInput || "").length <= 2 ||
@@ -268,7 +261,7 @@ export default class AllSearch {
             this.getCardsArticle.style.display = "none";
         } else {
             this.getCardsArticle.style.display = "block";
-            this.arrayTheRecipesFind.add(objectRecipe);
+            this.arrayTheRecipesFind.push(objectRecipe);
         }
     }
 }

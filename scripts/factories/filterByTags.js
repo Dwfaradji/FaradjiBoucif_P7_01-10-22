@@ -46,6 +46,7 @@ function createNewTableOfUtensils(recipes) {
     displayTheDomList(arrayUtensils, ".list_utensils", "color_3");
     inputTagFilter(querySelector.inputUtensil, ".list_utensils li");
 }
+
 // Creation de la liste
 function displayTheDomList(newArray, listLi, color) {
     newArray.forEach((ingredient) => {
@@ -111,23 +112,23 @@ function inputTagFilter(getInputTag, domAllList) {
             e.target.value.trim()
         );
         const getDomListsLi = document.querySelectorAll(domAllList);
-        getDomListsLi.forEach((ingredientInList) => {
+        getDomListsLi.forEach((elementInList) => {
             const conversionString = stringConversionWithoutAccents(
-                ingredientInList.innerHTML
+                elementInList.innerHTML
             );
             if (conversionString.includes(conversionStringInput) !== true) {
-                ingredientInList.setAttribute("data-list", "false");
+                elementInList.setAttribute("data-list", "false");
             } else {
-                ingredientInList.setAttribute("data-list", "true");
+                elementInList.setAttribute("data-list", "true");
             }
 
             if (
                 e.target.value.length <= 0 ||
-                ingredientInList.dataset.list === "true"
+                elementInList.dataset.list === "true"
             ) {
-                ingredientInList.style.display = "block";
+                elementInList.style.display = "block";
             } else {
-                ingredientInList.style.display = "none";
+                elementInList.style.display = "none";
             }
         });
     });
@@ -137,5 +138,5 @@ export {
     createNewTableOfIngredients,
     createNewTableOfAppliances,
     createNewTableOfUtensils,
-    createBtnTag,
+    createBtnTag
 };
