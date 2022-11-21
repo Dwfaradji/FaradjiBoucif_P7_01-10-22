@@ -136,7 +136,6 @@ export default class AllSearch {
     deleteBtnTag(className, selectTags) {
         const getDomBtnFilter = document.querySelectorAll(`.${className}`);
         getDomBtnFilter.forEach((btn) => {
-            btn.closest(className);
             btn.addEventListener("click", (e) => {
                 btn.style.display = "none";
                 selectTags.delete(e.target.innerText.trim());
@@ -196,17 +195,13 @@ export default class AllSearch {
             hasAllUtensil = this.findTheRecipesShow(hasAllUtensil, selectedTagsUtensil, objectsRecipe.ustensils);
         }
 
-        if (((this.valueInput || "").length <= 2 ||
+        objectsRecipe.data = ((this.valueInput || "").length <= 2 ||
                 recipesTitle ||
                 recipesDescription ||
                 recipesIngredient) &&
             hasAllIngredient &&
             hasAllAppliance &&
-            hasAllUtensil) {
-            objectsRecipe.data = true;
-        } else {
-            objectsRecipe.data = false;
-        }
+            hasAllUtensil;
     }
 
     findTheRecipesShow(hasAllElement, selectedTags, recipeElement, ingredient) {

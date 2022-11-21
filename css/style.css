@@ -265,5 +265,7 @@ section {
 	--bs-list-group-bg: #3282F7 !important
 }
 
-
+.btn_filter i {
+	pointer-events: none;
+}
 

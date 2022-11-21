@@ -14,6 +14,7 @@ class Card {
         this.recette = recipe;
         this.arrayListIngredient = recipe.ingredients;
         this.createCardDom();
+
     }
 
     listIngredient(lists) {
