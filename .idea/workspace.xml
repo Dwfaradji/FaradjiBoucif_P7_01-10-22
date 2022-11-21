@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef0947d5-bc49-46b8-8c3f-a4b70457dd80" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/factories/allSearch.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/factories/allSearch.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/factories/filterByTags.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/factories/filterByTags.js" afterDir="false" />
-    </list>
+    <list default="true" id="ef0947d5-bc49-46b8-8c3f-a4b70457dd80" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,6 +52,7 @@
       <workItem from="1668679083009" duration="4926000" />
       <workItem from="1668765037147" duration="5457000" />
       <workItem from="1668774433607" duration="14768000" />
+      <workItem from="1669024602700" duration="6349000" />
     </task>
     <servers />
   </component>

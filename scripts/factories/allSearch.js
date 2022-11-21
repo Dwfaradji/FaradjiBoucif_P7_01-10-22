@@ -14,10 +14,6 @@ export const selectedTagsUtensil = new Set();
 const querySelector = variables();
 const arrayTheRecipesFind = [];
 
-/**
- * @TODO : remplacer les boucles par des boucles for.
- * @TODO : refactoriser le code.
- */
 export default class AllSearch {
     ingredients;
 
@@ -246,7 +242,7 @@ export default class AllSearch {
                     this.stringConversionWithoutAccents(
                         recipeElement.ingredient
                     );
-                return conversionStringIngredients.includes(valueInput) === true;
+                return conversionStringIngredients.includes(valueInput) ;
             }
         });
         return searchForTheRecipes === true;
