@@ -237,7 +237,7 @@ export default class AllSearch {
     isResultToBeFoundInTheRecipes(recipeElement, valueInput) {
         const conversionString =
             this.stringConversionWithoutAccents(recipeElement);
-        return conversionString.includes(valueInput) === true;
+        return conversionString.indexOf(valueInput) !== -1;
     }
 
     isResultToBeFoundTheRecipesInArray(recipesElement, valueInput) {
@@ -248,7 +248,7 @@ export default class AllSearch {
                     this.stringConversionWithoutAccents(
                         element.ingredient
                     );
-                return conversionStringIngredients.includes(valueInput) === true;
+                return conversionStringIngredients.indexOf(valueInput) !== -1;
             }
         }
     }
