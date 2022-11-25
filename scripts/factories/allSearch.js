@@ -142,10 +142,11 @@ export default class AllSearch {
 
     filterTheRecipes() {
         this.arrayTheRecipesFind = [];
-        this.arrayRecipes.forEach((recipe) => {
-            this.getTheRecipesFound(recipe);
-            this.showTheRecipesFound(recipe);
-        });
+        for (let index = 0; index < this.arrayRecipes.length; index++) {
+            const element = this.arrayRecipes[index];
+            this.getTheRecipesFound(element);
+            this.showTheRecipesFound(element);
+        }
 
         this.getErrorText = document.querySelector(".noFound");
         if (this.arrayTheRecipesFind.length === 0) {
@@ -232,20 +233,20 @@ export default class AllSearch {
     isResultToBeFoundInTheRecipes(recipeElement, valueInput) {
         const conversionString =
             this.stringConversionWithoutAccents(recipeElement);
-        return conversionString.includes(valueInput) === true;
+        return conversionString.indexOf(valueInput) !== -1;
     }
 
     isResultToBeFoundTheRecipesInArray(recipesElement, valueInput) {
-        const searchForTheRecipes = recipesElement.some((recipeElement) => {
-            if (recipeElement.ingredient) {
+        for (let i = 0; i < recipesElement.length; i++) {
+            const element = recipesElement[i];
+            if (element.ingredient) {
                 const conversionStringIngredients =
                     this.stringConversionWithoutAccents(
-                        recipeElement.ingredient
+                        element.ingredient
                     );
-                return conversionStringIngredients.includes(valueInput) ;
+                return conversionStringIngredients.indexOf(valueInput) !== -1;
             }
-        });
-        return searchForTheRecipes === true;
+        }
     }
 
     showTheRecipesFound(objectRecipe) {
