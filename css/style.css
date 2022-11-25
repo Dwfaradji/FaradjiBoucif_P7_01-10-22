@@ -3,7 +3,8 @@
 }
 
 body {
-	box-sizing: border-box;
+	width: 90%;
+	margin: 0 auto;
 }
 
 main {
@@ -62,8 +63,6 @@ section {
 	margin-top: 10px;
 	position: absolute;
 	z-index: 1;
-	width: 100%;
-
 }
 
 .btn_input {
